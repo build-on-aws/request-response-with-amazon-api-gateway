@@ -23,5 +23,11 @@ export class RequestResponseExampleStack extends cdk.Stack {
 
     api.root.addMethod('GET', redirect);
 
+    const backendResource = api.root.addResource('backend')
+
+    backendResource.addMethod(
+      'GET', new apigw.LambdaIntegration(backendFunction)
+    );
+
   }
 }
