@@ -1,16 +1,18 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
+import * as apigw from 'aws-cdk-lib/aws-apigateway';
 
 export class RequestResponseExampleStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // The code that defines your stack goes here
+    const api = new apigw.RestApi(this, 'SimpleApi', {
+      restApiName: 'Simple API'
+    });
 
-    // example resource
-    // const queue = new sqs.Queue(this, 'RequestResponseExampleQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+    const redirect = new apigw.HttpIntegration('https://aws.amazon.com')
+    
+    api.root.addMethod('GET', redirect);
+
   }
 }
