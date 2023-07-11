@@ -1,6 +1,6 @@
 ## Request-Response with Amazon API Gateway
 
-This is the companion repository for the tutorial Request-Response with Amazon API Gateway and AWS Lambda (URL pending).
+This is the companion repository for the [Request-Response with Amazon API Gateway and AWS Lambda](https://community.aws/tutorials/application-integration-patterns/request-response-with-api-gateway) tutorial.
 
 Cloning this repository is not required for the tutorial, but it provides branches with individual milestones for each step:
 
